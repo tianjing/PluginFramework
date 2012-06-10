@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ComponentMetadata xmlns="http://www.innitech.cn/xmlns/component/v1"
+            Name="test1"
+            Author="innosys"
+            Copyright="innosys"
+            Url=""
+            Description="A component test1" Path="Plugins/test1/" Enabled="true" Immediate="true" Factory="">
+ 
+    <Runtime>
+      <Import assembly="Plugins/test1/bin/test1.dll" isweb="true" />
+      <Dependency AssemblyName="log2net" BundleSymbolicName="log2net" ></Dependency>
+    </Runtime>
+   
+</ComponentMetadata>

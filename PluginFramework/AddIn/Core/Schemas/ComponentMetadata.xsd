@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * $Id: ComponentMetadata.xsd 2007-12-28 egeye.cn@gmail.com $
+ * 
+ * Copyright (c) Kevin Zhou (2007, 2008). All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<xs:schema xmlns:cs="http://www.innitech.cn/xmlns/component/v1" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.innitech.cn/xmlns/component/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ComponentMetadata" type="cs:ComponentMetadata" />
+
+  <!-- Component map -->
+  <xs:complexType name="ComponentMetadata">
+    <xs:sequence>
+      <xs:element name="Runtime" type="cs:RuntimeInfo" />
+      <xs:element name="Implementation" type="cs:ImplementationInfo" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Reference" type="cs:ReferenceInfo" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Service" type="cs:ServiceInfo" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Property" type="cs:PropertyInfo" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required" />
+    <xs:attribute name="Author" type="xs:string" use="required" />
+    <xs:attribute name="Copyright" type="xs:string" use="optional" />
+    <xs:attribute name="Url" type="xs:anyURI" use="optional" />
+    <xs:attribute name="Description" type="xs:string" use="optional" />
+    <xs:attribute name="Enabled" type="xs:boolean" default="true" use="optional" />
+    <xs:attribute name="Factory" type="xs:string" use="optional"/>
+    <xs:attribute name="Path" type="xs:string" use="required" />
+    <xs:attribute name="Immediate" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <!-- Property -->
+  <xs:complexType name="PropertyInfo">
+    <xs:attribute name="Name" type="xs:string" use="optional" />
+    <xs:attribute name="Value" type="xs:string" use="optional" />
+    <xs:attribute name="Type" type="xs:string" use="optional" />
+  </xs:complexType>
+
+  <!-- Runtime entironment -->
+  <xs:complexType name="RuntimeInfo">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Import" type="cs:ImportInfo" />
+      </xs:choice>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Dependency" type="cs:Dependency" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Import the assembley -->
+  <xs:complexType name="ImportInfo">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="Doozer" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ConditionEvaluator" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+    </xs:choice>
+    <xs:attribute name="assembly" type="xs:string" use="required" />
+    <xs:attribute name="isweb" type="xs:boolean" use="required" />
+  </xs:complexType>
+  <!-- Dependency the assembley -->
+  <xs:complexType name="Dependency">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="Doozer" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ConditionEvaluator" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+    </xs:choice>
+    <xs:attribute name="BundleSymbolicName" type="xs:string" use="required" />
+    <xs:attribute name="AssemblyName" type="xs:string" use="required" />
+  </xs:complexType>
+  <!-- The BundleActivator (Interface) implementary class -->
+  <xs:complexType name="ImplementationInfo">
+    <xs:attribute name="Name" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <!-- Reference to other component -->
+  <xs:complexType name="ReferenceInfo">
+    <xs:attribute name="Name" type="xs:string" use="required" />
+    <xs:attribute name="Interface" type="xs:string" use="required" />
+    <xs:attribute name="Version" type="xs:string" use="optional" />
+    <xs:attribute name="Bind" type="xs:string" use="optional" />
+    <xs:attribute name="Unbind" type="xs:string" use="optional" />
+  </xs:complexType>
+
+  <!-- The component service -->
+  <xs:complexType name="ServiceInfo">
+    <xs:sequence>
+      <xs:element name="Provide" type="cs:ProvideInfo" minOccurs="0" maxOccurs="unbounded">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- The component provider -->
+  <xs:complexType name="ProvideInfo">
+    <xs:attribute name="Interface" type="xs:string" use="required" />
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ComponentMetadata xmlns="http://www.innitech.cn/xmlns/component/v1"
+            Name="testweb"
+            Author="innosys"
+            Copyright="innosys"
+            Url=""
+            Description="A component test." Enabled="true" Immediate="true" Factory="" Path="">
+ 
+    <Runtime>
+      <Import assembly="testconsol.exe" isweb="false"/>
+      <Dependency AssemblyName="log2net" BundleSymbolicName="log2net" ></Dependency>
+    </Runtime>
+    
+ 
+</ComponentMetadata>

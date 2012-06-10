@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1C0F531-3CDB-4C44-A29C-8F6A14E21CF8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PluginFramework</RootNamespace>
+    <AssemblyName>PluginFramework</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicProxy">
+      <HintPath>..\Bin\DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddIn\AddInAttribute.cs" />
+    <Compile Include="AddIn\AddInBase.cs" />
+    <Compile Include="AddIn\BundleEventArgs.cs" />
+    <Compile Include="AddIn\BundleEventHandler.cs" />
+    <Compile Include="AddIn\BundleException.cs" />
+    <Compile Include="AddIn\BundleState.cs" />
+    <Compile Include="AddIn\BundleTransition.cs" />
+    <Compile Include="AddIn\Core\Bundle.cs" />
+    <Compile Include="AddIn\Core\BundleContext.cs" />
+    <Compile Include="AddIn\Core\BundleRepository.cs" />
+    <Compile Include="AddIn\Core\EventManager.cs" />
+    <Compile Include="AddIn\Core\Filter.cs" />
+    <Compile Include="AddIn\Core\Framework.cs" />
+    <Compile Include="AddIn\Core\IServiceRegistry.cs" />
+    <Compile Include="AddIn\Core\Metadata\ComponentMetadata.cs" />
+    <Compile Include="AddIn\Core\Reflection\AttributeInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AddIn\Core\Reflection\TypeInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AddIn\Core\RegistrationState.cs" />
+    <Compile Include="AddIn\Core\ServiceReference.cs" />
+    <Compile Include="AddIn\Core\ServiceRegistration.cs" />
+    <Compile Include="AddIn\Core\ServiceRegistry.cs" />
+    <Compile Include="AddIn\Core\Services\Preferences.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AddIn\Core\Services\PreferencesProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AddIn\Core\SystemBundle.cs" />
+    <Compile Include="AddIn\Core\Utility\FileHelper.cs" />
+    <Compile Include="AddIn\Core\Utility\ReflectionUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AddIn\Core\Utility\StringTokenizer.cs" />
+    <Compile Include="AddIn\Core\Utility\XmlConvertor.cs" />
+    <Compile Include="AddIn\FrameworkEventArgs.cs" />
+    <Compile Include="AddIn\FrameworkEventHandler.cs" />
+    <Compile Include="AddIn\FrameworkState.cs" />
+    <Compile Include="AddIn\FrameworkUtil.cs" />
+    <Compile Include="AddIn\ServiceEventArgs.cs" />
+    <Compile Include="AddIn\ServiceEventHandler.cs" />
+    <Compile Include="AddIn\ServiceState.cs" />
+    <Compile Include="AddIn\IBundle.cs" />
+    <Compile Include="AddIn\IBundleActivator.cs" />
+    <Compile Include="AddIn\IBundleContext.cs" />
+    <Compile Include="AddIn\IBundleRepository.cs" />
+    <Compile Include="AddIn\IFilter.cs" />
+    <Compile Include="AddIn\IFramework.cs" />
+    <Compile Include="AddIn\InvalidSyntaxException.cs" />
+    <Compile Include="AddIn\IServiceFactory.cs" />
+    <Compile Include="AddIn\IServiceReference.cs" />
+    <Compile Include="AddIn\IServiceRegistration.cs" />
+    <Compile Include="Configuration\PluginXmlProcess.cs" />
+    <Compile Include="Configuration\Plugin\ActivatorData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Plugin\AssemblyData.cs" />
+    <Compile Include="Configuration\Plugin\BundleData.cs" />
+    <Compile Include="Configuration\Plugin\BundleInfoData.cs" />
+    <Compile Include="Configuration\Plugin\DependencyData.cs" />
+    <Compile Include="Configuration\Plugin\ExtensionData.cs" />
+    <Compile Include="Configuration\Plugin\ExtensionPointData.cs" />
+    <Compile Include="Configuration\Plugin\RuntimeData.cs" />
+    <Compile Include="Configuration\Plugin\ServiceData.cs" />
+    <Compile Include="PluginLoad.cs" />
+    <Compile Include="PluginManage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebLaunch.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="AddIn\Core\Schemas\ComponentMetadata.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AddIn\Core\Schemas\GenComponentMetadata.bat">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddIn\Core\Schemas\ComponentMetadata.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /h /d /y /r "$(TargetPath)" "$(SolutionDir)Bin"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
