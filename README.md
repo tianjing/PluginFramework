@@ -9,4 +9,8 @@ chinese:
 
 English:(note:my english is poor,detail google rendition)
 
-This is a plug-in framework, adapted from an imitation of the OSGI framework of the project by egeyeaddin-1035 Features:1, the function of service of the various components through the interface to obtain the service, obtain the corresponding functionSupport the Web Application and Console (containing the demo, in theory, also supports the winform)3, the component must implement the Activator the class and add Plugin.addin configuration file
+This is a plug-in framework, adapted from an imitation of the OSGI framework of the project by egeyeaddin-1035 
+Features:
+1, the function of service of the various components through the interface to obtain the service, obtain the corresponding function
+2, Support the Web Application and Console (containing the demo, in theory, also supports the winform)
+3, the component must implement the Activator the class and add Plugin.addin configuration file
